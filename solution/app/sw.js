@@ -14,13 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-importScripts('workbox-sw.dev.v2.1.0.js');
+importScripts('workbox-sw.js');
 
-const workboxSW = new WorkboxSW();
-workboxSW.precache([]);
+workbox.precaching.precacheAndRoute([]);
 
-workboxSW.router.registerRoute('https://fonts.googleapis.com/(.*)',
-  workboxSW.strategies.cacheFirst({
+workbox.routing.registerRoute('https://fonts.googleapis.com/(.*)',
+  workbox.strategies.cacheFirst({
     cacheName: 'googleapis',
     cacheExpiration: {
       maxEntries: 20
@@ -29,8 +28,8 @@ workboxSW.router.registerRoute('https://fonts.googleapis.com/(.*)',
   })
 );
 
-workboxSW.router.registerRoute(/\.(?:png|gif|jpg)$/,
-  workboxSW.strategies.cacheFirst({
+workbox.routing.registerRoute(/\.(?:png|gif|jpg)$/,
+  workbox.strategies.cacheFirst({
     cacheName: 'images',
     cacheExpiration: {
       maxEntries: 50
