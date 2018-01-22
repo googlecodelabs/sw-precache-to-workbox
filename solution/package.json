@@ -8,10 +8,10 @@
   },
   "devDependencies": {
     "browser-sync": "^2.18.13",
-    "del": "^2.2.2",
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
-    "run-sequence": "^1.2.2",
-    "workbox-build": "^2.1.0"
+    "run-sequence": "^2.2.0",
+    "workbox-build": "^3.0.0-alpha.5"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
