@@ -18,7 +18,7 @@ const gulp = require('gulp');
 const browserSync = require('browser-sync');
 const del = require('del');
 const runSequence = require('run-sequence');
-const wbBuild = require('workbox-build');
+const workboxBuild = require('workbox-build');
 
 // Clean build directory
 gulp.task('clean', () => del(['.tmp', 'build/*', '!build/.git'], {dot: true}));
@@ -30,11 +30,12 @@ gulp.task('copy', () =>
 );
 
 gulp.task('service-worker', () => {
-  return wbBuild.injectManifest({
+  return workboxBuild.injectManifest({
     swSrc: 'app/sw.js',
     swDest: 'build/sw.js',
     globDirectory: 'build',
-    staticFileGlobs: [
+    injectionPointRegexp: /(\.precacheAndRoute\()\s*\[\s*\]\s*(\))/,
+    globPatterns: [
       'index.html',
       'css/main.css'
     ]
