@@ -33,7 +33,7 @@ gulp.task('service-worker', function(callback) {
   swPrecache.write('build/sw.js', {
     staticFileGlobs: [
       'build/index.html',
-      'build/css/main.css',
+      'build/styles/main.css',
     ],
     importScripts: [
       'sw-toolbox.js',

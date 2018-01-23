@@ -14,25 +14,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-importScripts('workbox-sw.js');
+// importScripts('workbox-sw.js');
+// importScripts('workbox-cache-expiration.dev.js');
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.0.0-alpha.6/workbox-sw.js');
+
+// TODO - remove local copies of workbox when v3 is published
 
 workbox.precaching.precacheAndRoute([]);
 
-workbox.routing.registerRoute('https://fonts.googleapis.com/(.*)',
+workbox.routing.registerRoute(/\.(?:html|css)$/,
   workbox.strategies.cacheFirst({
-    cacheName: 'googleapis',
-    cacheExpiration: {
-      maxEntries: 20
-    },
-    cacheableResponse: {statuses: [0, 200]}
+    cacheName: 'pages',
   })
 );
 
 workbox.routing.registerRoute(/\.(?:png|gif|jpg)$/,
   workbox.strategies.cacheFirst({
     cacheName: 'images',
-    cacheExpiration: {
-      maxEntries: 50
-    }
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 50
+      })
+    ]
   })
 );
