@@ -37,7 +37,7 @@ gulp.task('service-worker', () => {
     injectionPointRegexp: /(\.precacheAndRoute\()\s*\[\s*\]\s*(\))/,
     globPatterns: [
       'index.html',
-      'css/main.css'
+      'styles/main.css'
     ]
   })
   .catch((err) => {
@@ -58,5 +58,5 @@ gulp.task('serve', ['default'], () => {
     server: 'build',
     port: 8002
   });
-  gulp.watch('app/*', ['default']).on('change', browserSync.reload);
+  gulp.watch('app/**/*', ['default']).on('change', browserSync.reload);
 });

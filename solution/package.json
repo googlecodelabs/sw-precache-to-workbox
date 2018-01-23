@@ -11,7 +11,7 @@
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "run-sequence": "^2.2.0",
-    "workbox-build": "^3.0.0-alpha.5"
+    "workbox-build": "^3.0.0-alpha.6"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
