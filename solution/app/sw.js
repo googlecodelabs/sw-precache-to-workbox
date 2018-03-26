@@ -14,11 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// importScripts('workbox-sw.js');
-// importScripts('workbox-cache-expiration.dev.js');
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.0.0-alpha.6/workbox-sw.js');
-
-// TODO - remove local copies of workbox when v3 is published
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.0.0/workbox-sw.js');
 
 workbox.precaching.precacheAndRoute([]);
 
