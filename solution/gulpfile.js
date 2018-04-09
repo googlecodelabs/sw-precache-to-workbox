@@ -34,7 +34,6 @@ gulp.task('service-worker', () => {
     swSrc: 'app/sw.js',
     swDest: 'build/sw.js',
     globDirectory: 'build',
-    injectionPointRegexp: /(\.precacheAndRoute\()\s*\[\s*\]\s*(\))/,
     globPatterns: [
       'index.html',
       'styles/main.css'
